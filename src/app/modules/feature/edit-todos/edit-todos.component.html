@@ -1,0 +1,39 @@
+<div style="background: linear-gradient(to bottom, #33cccc 0%, #ffccff 100%);
+;display: flex;justify-content: center;height: 100vh;align-items: center;">
+
+  <div style="display: flex;flex-direction: row;width: 600px;
+  height: 600px;
+  justify-content: center;
+  align-items: center;">
+
+    <form
+      style="width: 100%; padding: 20px; background-color: whitesmoke;border-radius: 10px;box-shadow: 0 4px 8px 0 rgba(0,0,0,.2);"
+      [formGroup]="addTodoForm">
+
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Title</mat-label>
+        <input matInput formControlName="title" placeholder="Title">
+      </mat-form-field>
+
+
+      <mat-form-field class="example-full-width">
+        <mat-label>Content</mat-label>
+        <input matInput formControlName="content" placeholder="Content">
+      </mat-form-field>
+
+      <div style="display: flex;justify-content: center;">
+
+        <button style="width: 180px; background-color: salmon; color: white;" mat-button color="primary"
+          (click)="addTodo()">Add
+          Todo</button>
+      </div>
+
+    </form>
+
+  </div>
+
+
+
+
+</div>
