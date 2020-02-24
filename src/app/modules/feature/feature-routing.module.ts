@@ -21,7 +21,7 @@ const routes: Routes = [
           import("./add-todos/add-todos.module").then(m => m.AddTodosModule)
       },
       {
-        path: "edit-todos",
+        path: "edit-todos/:id",
         loadChildren: () =>
           import("./edit-todos/edit-todos.module").then(m => m.EditTodosModule)
       }

@@ -2,7 +2,7 @@
 import { Injectable } from "@angular/core";
 import { MatSnackBar } from "@angular/material";
 // tslint:disable-next-line: quotemark
-import { ToastComponent } from "../modules/shared/toast/toast.component";
+import { ToastComponent } from "../../modules/shared/toast/toast.component";
 
 @Injectable({
   providedIn: "root"
@@ -12,8 +12,6 @@ export class ToastService {
   constructor(private _snackBar: MatSnackBar) {}
 
   openSnackBar(data) {
-    console.log(data);
-
     this._snackBar.openFromComponent(ToastComponent, {
       duration: 3000,
       // tslint:disable-next-line: object-literal-shorthand

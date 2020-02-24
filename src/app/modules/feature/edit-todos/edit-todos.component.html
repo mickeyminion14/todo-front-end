@@ -9,7 +9,10 @@
     <form
       style="width: 100%; padding: 20px; background-color: whitesmoke;border-radius: 10px;box-shadow: 0 4px 8px 0 rgba(0,0,0,.2);"
       [formGroup]="addTodoForm">
-
+      <mat-form-field class="example-full-width">
+        <mat-label>ID</mat-label>
+        <input readonly matInput formControlName="id" placeholder="Title">
+      </mat-form-field>
 
       <mat-form-field class="example-full-width">
         <mat-label>Title</mat-label>
@@ -25,7 +28,7 @@
       <div style="display: flex;justify-content: center;">
 
         <button style="width: 180px; background-color: salmon; color: white;" mat-button color="primary"
-          (click)="addTodo()">Add
+          (click)="editTodo()">Update
           Todo</button>
       </div>
 
