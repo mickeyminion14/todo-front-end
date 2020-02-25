@@ -1,1 +1,1 @@
-export const BASE_URL = "https://todo-minion.herokuapp.com";
+export const BASE_URL = "http://localhost:8080";

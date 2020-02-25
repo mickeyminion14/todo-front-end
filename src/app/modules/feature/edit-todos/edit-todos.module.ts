@@ -9,6 +9,7 @@ import {
   MatButtonModule
 } from "@angular/material";
 import { ReactiveFormsModule, FormsModule } from "@angular/forms";
+import { EditTodoService } from "./service/edit-todo.service";
 const MATERIAL = [MatInputModule, MatFormFieldModule, MatButtonModule];
 
 @NgModule({
@@ -19,6 +20,7 @@ const MATERIAL = [MatInputModule, MatFormFieldModule, MatButtonModule];
     ...MATERIAL,
     ReactiveFormsModule,
     FormsModule
-  ]
+  ],
+  providers: [EditTodoService]
 })
 export class EditTodosModule {}

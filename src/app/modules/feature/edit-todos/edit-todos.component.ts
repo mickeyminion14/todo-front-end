@@ -7,7 +7,8 @@ import {
 } from "@angular/forms";
 import { HttpService } from "src/app/services/http/http.service";
 import { ToastService } from "src/app/services/toast/toast.service";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
+import { EditTodoService } from "./service/edit-todo.service";
 
 @Component({
   selector: "app-edit-todos",
@@ -19,10 +20,11 @@ export class EditTodosComponent implements OnInit {
   activeId: number;
   constructor(
     private _fb: FormBuilder,
-    private _http: HttpService,
+    private editTodoService: EditTodoService,
 
     private _toastService: ToastService,
-    private _activatedRoute: ActivatedRoute
+    private _activatedRoute: ActivatedRoute,
+    private router: Router
   ) {
     this.addTodoForm = this.createAddTodoForm();
 
@@ -45,11 +47,22 @@ export class EditTodosComponent implements OnInit {
 
   editTodo() {
     if (this.addTodoForm.valid) {
+      this.addTodoForm.disable();
       const payload = { ...this.addTodoForm.value };
-      console.log(payload);
+      this.editTodoService.editTodo(payload).subscribe(
+        (data: any) => {
+          this._toastService.openSnackBar(data.message);
+          this.router.navigate(["/feature/todos"]);
+          this.addTodoForm.enable();
+        },
+        err => {
+          this._toastService.openSnackBar(err.error.message);
+          this.addTodoForm.enable();
+        }
+      );
     } else {
       this._toastService.openSnackBar(
-        "Enter valid details to edit the todo !!"
+        "Enter valid details to update the todo !!"
       );
     }
   }
