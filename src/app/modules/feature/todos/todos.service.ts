@@ -16,4 +16,10 @@ export class TodosService {
       })
     );
   }
+
+  delteTodo(payload) {
+    return this._httpService
+      .delete(BASE_URL + "/todo/delete", payload)
+      .pipe(map(resp => resp));
+  }
 }

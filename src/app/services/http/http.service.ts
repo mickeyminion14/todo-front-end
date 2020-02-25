@@ -19,4 +19,8 @@ export class HttpService {
     const params = new HttpParams();
     return this._http.post(url, body, { params: params });
   }
+
+  delete(url: string, body: any) {
+    return this._http.delete(url, body);
+  }
 }

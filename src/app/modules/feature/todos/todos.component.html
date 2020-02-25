@@ -1,9 +1,6 @@
 <div *ngIf="!todoEmpty" class="row">
   <div class="col-sm-3" *ngFor="let todo of todos">
-    <mat-card
-      style="padding: 30px;background-color: whitesmoke;"
-      class="example-card"
-    >
+    <mat-card style="padding: 30px;background-color: whitesmoke;" class="example-card">
       <mat-card-header style="display: flex;justify-content: center">
         <mat-card-title style="text-align: center;">{{
           todo.title
@@ -15,14 +12,10 @@
         </p>
       </mat-card-content>
       <mat-card-actions style="display: flex;justify-content: center;">
-        <button
-          (click)="editTodo(todo._id)"
-          style="background-color: dodgerblue; color: white;"
-          mat-button
-        >
+        <button (click)="editTodo(todo._id)" style="background-color: dodgerblue; color: white;" mat-button>
           EDIT
         </button>
-        <button style="background-color: coral;color: white;" mat-button>
+        <button (click)="deletTodo(todo._id)" style="background-color: coral;color: white;" mat-button>
           DELETE
         </button>
       </mat-card-actions>
@@ -30,10 +23,8 @@
   </div>
 </div>
 
-<div
-  *ngIf="todoEmpty"
-  style="display: flex;justify-content: center;height: 100vh;align-items: center;background: linear-gradient(to bottom, #6699ff 0%, #3366ff 100%);"
->
+<div *ngIf="todoEmpty"
+  style="display: flex;justify-content: center;height: 100vh;align-items: center;background: linear-gradient(to bottom, #6699ff 0%, #3366ff 100%);">
   <figure>
     <img src="../../../../assets//images//face_empty.3a02448a.png" alt="" />
   </figure>
